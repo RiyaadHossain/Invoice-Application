@@ -59,22 +59,22 @@ document.getElementById("add-btn").addEventListener("click", () => {
     item_Price.value = ''
     item_Quantity.value = ''
 
-    total()
+    totalCalc()
 });
 
 
 /* Function for Mathematical Calculation */
-const total = () => {
+const totalCalc = () => {
     let count = 0;
     const price_Total = document.getElementsByClassName('price')
     
     for (let i = 0; i < price_Total.length; i++){
         let element = price_Total[i].innerText;
-        count += parseInt(element)
+        count += parseFloat(element)
     }
     sub_Total.innerText = count
 
-    tax.innerText = count * 0.2
-    grand_Total.innerText = count + parseInt(tax.innerText)
-    grand_Total2.innerText = count + parseInt(tax.innerText)
+    tax.innerText = (count * 0.2).toFixed(2)
+    grand_Total.innerText = count + parseFloat(tax.innerText)
+    grand_Total2.innerText = count + parseFloat(tax.innerText)
 }
